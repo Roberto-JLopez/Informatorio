@@ -73,20 +73,22 @@ rango = range(1, 10)
 #Ejemplo de condicionales anidados (evitar  hacerlo a los anidados)
 
 
-#if edad >= 18:
+# edad = 15
+
+# if edad >= 18:
 #    if edad > 65:
 #        print('Eres mayor de edad')
 #        if edad >= 100:
 #            print('Usted es un anciano a punto de partir')
 #            if edad >= 150:
 #                print('Usted es un cadaver')
-#else:
+# else:
 #    print('Eres menor de edad')
 
-# 
-# edad = input('ingrese su edad: ')
-# print("vamos a mostrar los tipos de datos")
-# print (type(edad))
 
-# conversion = int(edad) 
-# print (type(conversion))
+edad = input('ingrese su edad: ')
+print("vamos a mostrar los tipos de datos")
+print (type(edad))
+
+conversion = int(edad) 
+print (type(conversion))
