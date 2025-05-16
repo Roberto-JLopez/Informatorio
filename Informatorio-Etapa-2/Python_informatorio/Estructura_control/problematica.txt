@@ -1,0 +1,12 @@
+un grupo de amigos tiene problemas al tomar una decisión (Comida).
+Para ello se necesita implementar un sistema de votos en el que puedan
+elegir su opción entre varias disponibles.
+
+tener en cuenta:
+1. Solo se puede votar una vez
+2. Es totalmente anónima
+3. Las opciones serán proporcionadas por los mismos usuarios.
+
+Utilizar solamente...
+python, metodos, listas, diccionarios, bucles (for o while),
+condicionales if elif else.

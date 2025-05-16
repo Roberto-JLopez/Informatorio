@@ -7,9 +7,9 @@
 # print(lista_vacia)
 # print(type(lista_vacia))
 
-lista = [1, "Hola mundo", 1.5, "1", ["otra", "lista"], True, {}]
+# lista = [1, "Hola mundo", 1.5, "1", ["otra", "lista"], True, {}]
 
-# # print(lista)
+# print(lista)
 # print(lista[2])   # imprime el elemento en la posición 2
 
 # # lista en trozos
