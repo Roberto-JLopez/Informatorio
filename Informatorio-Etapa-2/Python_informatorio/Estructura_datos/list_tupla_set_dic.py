@@ -40,6 +40,10 @@
 # for i in lista:
 #     print(i)
 
+# for i in lista:
+#     indice += 1
+#     print(indice, i)
+
 # #imprimir un elemento dentro de otra lista     
 # print(lista[2][1]) # imprime el segundo elemento de la lista que está en la posición 2
 
@@ -87,6 +91,10 @@ tupla = (1, "Hola mundo", 1.5, "1", ["otra", "lista"], True, {})
 # tupla2 = tuple(tupla2) # convierte la lista a tupla
 # print(tupla2)
 
+## para recorrer una tupla
+# for i in comidas:
+    
+#     print(i)
 
 # # ---------- Conjuntos -------------------# #
 
