@@ -1,0 +1,272 @@
+
+---
+
+### **Widgets de Tkinter**
+
+- **tk.Label**  
+  Muestra texto en la ventana.  
+  Ejemplo en tu código:  
+  ```python
+  tk.Label(ventana, text="Nombre del estudiante:").pack(pady=5, fill="x")
+  ```
+
+- **tk.Entry**  
+  Campo de entrada de texto (una sola línea).  
+  Ejemplo en tu código:  
+  ```python
+  entrada_nombre = tk.Entry(ventana)
+  entrada_nombre.pack(pady=5)
+  ```
+
+- **tk.Button**  
+  Botón que ejecuta una función al hacer clic.  
+  Ejemplo en tu código:  
+  ```python
+  tk.Button(ventana, text="Agregar Estudiante", command=ingresar_estudiante).pack(pady=5)
+  ```
+
+- **tk.Listbox**  
+  Lista de elementos donde puedes mostrar varios ítems.  
+  Ejemplo en tu código:  
+  ```python
+  lista_estudiantes = tk.Listbox(ventana)
+  lista_estudiantes.pack(pady=5, fill=tk.BOTH, expand=True)
+  ```
+
+---
+
+### **Métodos de los widgets**
+
+- **.pack()**  
+  Método para ubicar el widget en la ventana.
+
+- **.get()**  
+  Método de `Entry` para obtener el texto ingresado.  
+  Ejemplo:  
+  ```python
+  nombre = entrada_nombre.get()
+  ```
+
+- **.insert()**  
+  Método de `Listbox` para agregar un elemento a la lista.  
+  Ejemplo:  
+  ```python
+  lista_estudiantes.insert(tk.END, "Juan: 8")
+  ```
+
+- **.strip()**  
+  Método de cadenas de texto para eliminar espacios al inicio y final.  
+  Ejemplo:  
+  ```python
+  nombre = entrada_nombre.get().strip()
+  ```
+
+---
+
+
+otros widgets de Tkinter que pueden serte útiles para mejorar tu aplicación:
+
+### Widgets comunes que podrías necesitar
+
+- **tk.Frame**  
+  Sirve para agrupar otros widgets y organizar mejor la interfaz.
+
+- **tk.Checkbutton**  
+  Casilla de verificación (checkbox) para opciones activadas/desactivadas.
+
+- **tk.Radiobutton**  
+  Botones de opción para elegir solo una alternativa entre varias.
+
+- **tk.Scrollbar**  
+  Barra de desplazamiento, útil si tu `Listbox` tiene muchos elementos.
+
+- **tk.Text**  
+  Campo de texto multilínea (a diferencia de `Entry`, que es solo una línea).
+
+- **tk.Menu**  
+  Para agregar menús desplegables en la ventana.
+
+- **tk.ttk.Combobox**  
+  (de `tkinter.ttk`) Lista desplegable para seleccionar una opción.
+
+### Ejemplo de uso de Frame y Scrollbar
+```python
+frame = tk.Frame(ventana)
+frame.pack()
+
+scrollbar = tk.Scrollbar(frame)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+lista_estudiantes = tk.Listbox(frame, yscrollcommand=scrollbar.set)
+lista_estudiantes.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+scrollbar.config(command=lista_estudiantes.yview)
+```
+
+Estos widgets te permiten crear interfaces más completas y cómodas para el usuario.  
+
+
+
+---
+pady=5 
+
+  
+    El parámetro `pady=5` en Tkinter agrega un espacio (padding) vertical de 5 píxeles por arriba y por abajo del widget al usar `.pack()`.  
+    Sirve para separar visualmente los elementos y que no queden pegados entre sí.  
+    Por ejemplo, si pones varios widgets con `pady=5`, cada uno tendrá un pequeño espacio extra arriba y abajo.
+
+padx=5
+
+    El parámetro `padx=5` en Tkinter agrega un espacio (padding) horizontal de 5 píxeles a la izquierda y a la derecha del widget cuando usas `.pack()`.  
+    Sirve para separar los elementos horizontalmente, evitando que queden pegados a los bordes o a otros widgets.
+
+    **Ejemplo:**
+    ```python
+    tk.Label(ventana, text="Ejemplo con padding").pack(padx=5, pady=5)
+    ```
+    Esto agrega espacio tanto arriba/abajo (`pady`) como a los lados (`padx`).
+
+`fill="x"`
+    El parámetro `fill="x"` en Tkinter, cuando usas `.pack()`, hace que el widget se expanda horizontalmente para ocupar todo el ancho disponible de la ventana o del contenedor donde está.
+
+    Por ejemplo:
+    ```python
+    tk.Label(ventana, text="Texto").pack(fill="x")
+    ```
+    Esto hace que la etiqueta (Label) se estire de izquierda a derecha, ocupando todo el espacio horizontal posible.
+
+    - `fill="x"` → se expande horizontalmente.
+    - `fill="y"` → se expande verticalmente.
+    - `fill="both"` → se expande en ambas direcciones.
+   
+`tk.Label` 
+    es un widget de Tkinter que se utiliza para mostrar texto o imágenes en una ventana.  
+    No permite interacción del usuario, solo sirve para mostrar información, títulos, instrucciones, etc.
+
+    **Ejemplo básico:**
+    ```python
+    etiqueta = tk.Label(ventana, text="Hola, soy una etiqueta")
+    etiqueta.pack()
+    ```
+
+    En tu código:
+    ```python
+    tk.Label(ventana, text="Nombre del estudiante:").pack(pady=5, fill="x")
+    ```
+    Esto crea una etiqueta que muestra el texto "Nombre del estudiante:" en la ventana.
+
+`tk.Listbox` 
+    es un widget de Tkinter que sirve para mostrar una lista de elementos en la ventana.  
+    Permite al usuario ver y seleccionar uno o varios ítems de la lista.
+
+    **Ejemplo de uso:**
+    ```python
+    lista = tk.Listbox(ventana)
+    lista.pack()
+    lista.insert(tk.END, "Elemento 1")
+    lista.insert(tk.END, "Elemento 2")
+    ```
+
+    En tu código, `lista_estudiantes = tk.Listbox(ventana)` crea una lista donde se muestran los estudiantes y sus notas.
+
+`tk.END` 
+
+    es una constante de Tkinter que se usa para indicar el final de una lista o texto en widgets como `Listbox` o `Text`.
+
+    Por ejemplo, cuando usas:
+    ```python
+    lista_estudiantes.insert(tk.END, "Juan: 8")
+    ```
+    le estás diciendo a Tkinter que agregue el elemento al final de la lista.
+
+    **Resumen:**  
+    - `tk.END` = al final del widget (última posición disponible).  
+    - Es útil para agregar nuevos elementos sin preocuparte por la posición exacta.
+
+`tk.Entry`                                                                  
+
+
+    es un widget de Tkinter que permite al usuario ingresar texto en una sola línea, como un campo de formulario.
+
+    **Ejemplo de uso:**
+    ```python
+    entrada = tk.Entry(ventana)
+    entrada.pack()
+    ```
+
+    En tu código, usas `entrada_nombre = tk.Entry(ventana)` para que el usuario escriba el nombre del estudiante, y `entrada_nota = tk.Entry(ventana)` para que escriba la nota.  
+    Luego puedes obtener el texto ingresado con `entrada.get()`.
+
+`.pack()`
+
+    El método `.pack()` en Tkinter se utiliza para agregar (empaquetar) un widget a la ventana o contenedor y gestionar automáticamente su posición y tamaño.  
+    Es uno de los tres gestores de geometría de Tkinter (`pack`, `grid`, `place`).
+
+    **Ejemplo:**
+    ```python
+    etiqueta = tk.Label(ventana, text="Hola")
+    etiqueta.pack()
+    ```
+
+    Puedes usar opciones como `side`, `fill`, `expand`, `padx`, `pady` para controlar la ubicación y el espacio alrededor del widget.  
+    Por ejemplo:
+    ```python
+    entrada.pack(pady=5, fill="x")
+    ```
+    Esto agrega espacio vertical y hace que el widget se expanda horizontalmente.
+
+`.get().strip()`
+
+    `.get().strip()` es una combinación de métodos que se usa para obtener el texto ingresado por el usuario en un widget de entrada (como `tk.Entry`) y eliminar los espacios en blanco al principio y al final de ese texto.
+
+    - `.get()` obtiene el texto actual del campo de entrada.
+    - `.strip()` elimina los espacios en blanco al inicio y al final de ese texto.
+
+    **Ejemplo:**
+    ```python
+    nombre = entrada_nombre.get().strip()
+    ```
+    Esto asegura que si el usuario escribe `"  Juan  "`, el valor guardado será `"Juan"`, sin espacios extra.
+
+`.strip()`
+
+    El método `.strip()` en Python elimina los espacios en blanco (y saltos de línea) al principio y al final de una cadena de texto.
+
+    **Ejemplo:**
+    ```python
+    texto = "   Juan   "
+    limpio = texto.strip()  # Resultado: "Juan"
+    ```
+
+    En tu código, se usa junto con `.get()` para asegurarse de que el nombre o la nota ingresados no tengan espacios extra antes o después.  
+    Esto ayuda a evitar errores por espacios accidentales al ingresar datos.
+
+`tk.Button`
+    `tk.Button` es un widget de Tkinter que crea un botón en la ventana.  
+    Sirve para que el usuario pueda hacer clic y ejecutar una acción o función.
+
+    **Ejemplo de uso:**
+    ```python
+    boton = tk.Button(ventana, text="Haz clic aquí", command=mi_funcion)
+    boton.pack()
+    ```
+
+    - `text="..."` define el texto que aparece en el botón.
+    - `command=...` indica la función que se ejecuta al hacer clic.
+
+    En tu código:
+    ```python
+    tk.Button(ventana, text="Agregar Estudiante", command=ingresar_estudiante).pack(pady=5)
+    ```
+    Esto crea un botón que, al presionarlo, ejecuta la función `ingresar_estudiante`.
+
+
+
+
+
+
+
+
+
+
+
+
